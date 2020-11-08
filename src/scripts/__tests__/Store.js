@@ -25,5 +25,9 @@ describe("filter", () => {
 
     // Assert
     expect(sut.deals.length).toEqual(4);
+    expect(sut.deals[0].id).toEqual(6158);
+    expect(sut.deals[1].id).toEqual(4359);
+    expect(sut.deals[2].id).toEqual(4371);
+    expect(sut.deals[3].id).toEqual(5459);
   });
 });
