@@ -30,4 +30,13 @@ describe("filter", () => {
     expect(sut.deals[2].id).toEqual(4371);
     expect(sut.deals[3].id).toEqual(5459);
   });
+
+  it('should return 4 deals when filtered by broadband and tv', () => {
+    // Act
+    sut.setProductFilter('broadband');
+    sut.setProductFilter('tv');
+
+    // Assert
+    expect(sut.deals.length).toEqual(4);
+  });
 });
