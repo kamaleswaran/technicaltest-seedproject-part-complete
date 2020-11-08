@@ -2,11 +2,15 @@ import Store from "../Store";
 import mockData from "../../../public/db.json";
 
 describe("filter", () => {
-  it("should return all deals when no filters applied", () => {
-    // Arrange
-    const sut = new Store();
-    sut.setDeals(mockData.deals);
+  let sut;
 
+  beforeEach(() => {
+    // Arrange
+    sut = new Store();
+    sut.setDeals(mockData.deals);
+  });
+
+  it("should return all deals when no filters applied", () => {
     // Act
     const result = sut.deals;
 
@@ -16,10 +20,6 @@ describe("filter", () => {
   });
 
   it('should return 4 broadband deals when filtered by broadband', () => {
-    // Arrange
-    const sut = new Store();
-    sut.setDeals(mockData.deals);
-
     // Act
     sut.setProductFilter('broadband');
 
