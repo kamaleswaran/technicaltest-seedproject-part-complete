@@ -53,4 +53,12 @@ describe("filter", () => {
     expect(sut.deals.length).toEqual(1);
     expect(sut.deals[0].id).toEqual(4276);
   });
+
+  it('should return 1 deal when filtered by sky provider', () => {
+    // Act
+    sut.setProviderFilter('sky');
+
+    // Assert
+    expect(sut.deals.length).toEqual(1);
+  });
 });
