@@ -30,6 +30,10 @@ class Store extends Observable {
       });
     }
 
+    if (this.state.providerFilter) {
+      deals = deals.filter(deal => deal.provider.name.toLowerCase() === this.state.providerFilter)
+    }
+
     return deals;
   }
 
