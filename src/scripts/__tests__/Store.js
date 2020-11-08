@@ -43,4 +43,14 @@ describe("filter", () => {
     expect(sut.deals[2].id).toEqual(6165);
     expect(sut.deals[3].id).toEqual(6468);
   });
+
+  it('should return 1 deal when filtered by broadband and mobile', () => {
+    // Act
+    sut.setProductFilter('broadband');
+    sut.setProductFilter('mobile');
+
+    // Assert
+    expect(sut.deals.length).toEqual(1);
+    expect(sut.deals[0].id).toEqual(4276);
+  });
 });
