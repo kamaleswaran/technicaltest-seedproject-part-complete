@@ -12,5 +12,6 @@ describe("filter", () => {
 
     // Assert
     expect(result).toEqual(mockData.deals);
+    expect(result.length).toEqual(11);
   });
 });
