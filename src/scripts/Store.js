@@ -23,9 +23,10 @@ class Store extends Observable {
           .filter(type => type != 'Phone')
           .map(type => type.toLowerCase().indexOf('broadband') > -1
             ? 'broadband' : type.toLowerCase())
+          .sort()
           .join(',');
 
-        return productTypes === this.state.productFilters.join(',').toLowerCase();
+        return productTypes === this.state.productFilters.sort().join(',').toLowerCase();
       });
     }
 
