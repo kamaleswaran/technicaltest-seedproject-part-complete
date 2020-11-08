@@ -56,7 +56,7 @@ describe("filter", () => {
 
   it('should return 1 deal when filtered by sky provider', () => {
     // Act
-    sut.setProviderFilter('sky');
+    sut.setProviderFilter(1);
 
     // Assert
     expect(sut.deals.length).toEqual(1);
@@ -65,7 +65,7 @@ describe("filter", () => {
 
   it('should return 2 deals when filtered by BT, broadband and tv', () => {
     // Act
-    sut.setProviderFilter('bt');
+    sut.setProviderFilter(3);
     sut.setProductFilter('broadband');
     sut.setProductFilter('tv');
 
