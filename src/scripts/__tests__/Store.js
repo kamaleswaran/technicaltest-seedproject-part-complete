@@ -60,5 +60,6 @@ describe("filter", () => {
 
     // Assert
     expect(sut.deals.length).toEqual(1);
+    expect(sut.deals[0].id).toEqual(6468);
   });
 });
