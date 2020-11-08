@@ -62,4 +62,16 @@ describe("filter", () => {
     expect(sut.deals.length).toEqual(1);
     expect(sut.deals[0].id).toEqual(6468);
   });
+
+  it('should return 2 deals when filtered by BT, broadband and tv', () => {
+    // Act
+    sut.setProviderFilter('bt');
+    sut.setProductFilter('broadband');
+    sut.setProductFilter('tv');
+
+    // Assert
+    expect(sut.deals.length).toEqual(2);
+    expect(sut.deals[0].id).toEqual(6074);
+    expect(sut.deals[1].id).toEqual(5738);
+  });
 });
