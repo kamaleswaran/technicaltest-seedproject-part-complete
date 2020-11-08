@@ -15,7 +15,26 @@ class Store extends Observable {
   }
 
   filter() {
-    return this.state.deals;
+    let deals = [...this.state.deals];
+
+    if (this.state.productFilters.length) {
+      deals = deals.filter(deal => {
+        let productTypes = deal.productTypes
+          .filter(type => type != 'Phone')
+          .map(type => type.toLowerCase().indexOf('broadband') > -1
+            ? 'broadband' : type.toLowerCase())
+          .sort()
+          .join(',');
+
+        return productTypes === this.state.productFilters.sort().join(',').toLowerCase();
+      });
+    }
+
+    if (this.state.providerFilter) {
+      deals = deals.filter(deal => deal.provider.id === this.state.providerFilter)
+    }
+
+    return deals;
   }
 
   setDeals(data) {
